@@ -1,6 +1,7 @@
 class FixNum:
-    def __init__(self, a=0, b=0, prec=3):
-        # Store as a single integer: a * scale + b
+    def __init__(self, a=0, b=0):
+        # Store as a single integer: a.b
+        from __main__ import prec
         self.a = a
         self.b = b
         self.prec = prec
