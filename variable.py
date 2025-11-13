@@ -1,3 +1,3 @@
 class globalvar:
     def __init__(self):
-        self.prec = 2
+        self.prec = 3

@@ -11,9 +11,6 @@ class FixNum:
         if int(self.a) > 0 and int(self.b) < 0:
             print("Error: Negative fractional part with non-zero integral part.")
             Exception()
-        if str(abs(self.b)) > self.prec:
-            print(f"Error: Fractional part exceeds precision of {self.prec} digits.")
-            Exception()
         
     
     def __str__(self):
