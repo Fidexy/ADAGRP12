@@ -1,5 +1,5 @@
 class FixNum:
-    def __init__(self, prec, a=0, b=0):
+    def __init__(self, a=0, b=0, prec=3):
         # Store as a single integer: a * scale + b
         self.a = a
         self.b = b
@@ -10,6 +10,9 @@ class FixNum:
         self.a, self.b = input(f"Enter number a.b as [a] [b] (precision {self.prec}): ").split()
         if int(self.a) > 0 and int(self.b) < 0:
             print("Error: Negative fractional part with non-zero integral part.")
+            Exception()
+        if str(abs(self.b)) > self.prec:
+            print(f"Error: Fractional part exceeds precision of {self.prec} digits.")
             Exception()
         
     
