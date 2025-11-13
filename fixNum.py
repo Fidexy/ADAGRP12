@@ -1,7 +1,6 @@
 class FixNum:
-    def __init__(self, a=0, b=0):
-        # Store as a single integer: a.b
-        from __main__ import prec
+    def __init__(self, a=0, b=0, prec=2):
+        # Store as a single integer: a * scale + b
         self.a = a
         self.b = b
         self.prec = prec
@@ -22,9 +21,9 @@ class FixNum:
         b = int(self.b) + int(num2.b)
         if len(str(b)) > self.prec:
             a += b // (10 ** self.prec)
-            print(b // (10 ** self.prec))
+            print("debug message: a+ ",b // (10 ** self.prec))
             b = b % (10 ** self.prec)
-            print(b % (10 ** self.prec))
+            print("debug message, b= ",b % (10 ** self.prec))
         return FixNum(a, b)
     
     def __float__(self):
