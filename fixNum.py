@@ -8,23 +8,21 @@ class FixNum:
 
     def input(self):
         self.a, self.b = input(f"Enter number a.b as [a] [b] (precision {self.prec}): ").split()
-        if int(self.a) > 0 and int(self.b) < 0:
-            print("Error: Negative fractional part with non-zero integral part.")
-            Exception()
-        
+        if int(self.a) != 0 and int(self.b) < 0:
+            raise Exception("Error: Negative fractional part with non-zero integral part.")
+        if len(str(abs(int(self.b)))) > self.prec:
+            raise(f"Error: Fractional part exceeds precision of {self.prec} digits.")
     
     def __str__(self):
         return f"{self.a}.{str(self.b).zfill(self.prec)}"
     
     def __add__(self, num2):
-        a = int(self.a) + int(num2.a)
-        b = int(self.b) + int(num2.b)
-        if len(str(b)) > self.prec:
-            a += b // (10 ** self.prec)
-            print("debug message: a+ ",b // (10 ** self.prec))
-            b = b % (10 ** self.prec)
-            print("debug message, b= ",b % (10 ** self.prec))
-        print("a.b=", a, b)
+        x = float(self) * 10**self.prec
+        y = float(num2) * 10**self.prec
+        result = x + y
+        a = int(result // (10 ** self.prec))
+        b = int(result % (10 ** self.prec))
+        print(a, b)
         return FixNum(self.prec, a, b)
     
     def __float__(self):
