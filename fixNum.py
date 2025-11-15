@@ -29,7 +29,7 @@ class FixNum:
         x = (float(self) * 10**self.prec)*self.s
         y = (float(num2) * 10**self.prec)*num2.s
         result = x + y
-        print(x, y, result)
+        # print(x, y, result)
         if result < 0:
             self.s = -1
             result = abs(result)
@@ -37,7 +37,7 @@ class FixNum:
             self.s = 1
         a = int(result // 10**self.prec)
         b = round(result % 10**self.prec)
-        print(a, b)         
+        # print(a, b)         
         return FixNum(self.prec, self.s, a, b)
     
     
