@@ -12,7 +12,7 @@ class FixNum:
             raise Exception("Error: Negative fractional part with non-zero integral part.")
         if len(str(abs(int(self.b)))) > self.prec:
             raise Exception(f"Error: Fractional part exceeds precision of {self.prec} digits.")
-        if int(self.a) < 0 or int(self.b) < 0:
+        if int(self.a) < 0 or int(self.b) < 0 or self.a == '-0':
             self.s = -1
         else:
             self.s = 1
@@ -34,7 +34,7 @@ class FixNum:
             self.s = -1
             result = abs(result)
         else:
-                self.s = 1
+            self.s = 1
         a = int(result // 10**self.prec)
         b = round(result % 10**self.prec)
         print(a, b)         
@@ -48,4 +48,6 @@ class FixNum:
             return float(f"{self.a}.{str(self.b).zfill(self.prec)}")
     
     def pow(self, num2):
+        if int(self) == 0:
+            raise Exception("Error: Fixed point number is zero")
         return(float(self)**float(num2))
