@@ -48,6 +48,4 @@ class FixNum:
             return float(f"{self.a}.{str(self.b).zfill(self.prec)}")
     
     def pow(self, num2):
-        if int(self) == 0 and int():
-            raise Exception("Error: Fixed point number is zero")
         return(float(self)**float(num2))
