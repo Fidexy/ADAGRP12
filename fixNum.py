@@ -26,8 +26,8 @@ class FixNum:
             return f"{self.a}.{str(self.b).zfill(self.prec)}"
     
     def __add__(self, num2):
-        x = (float(self) * 10**self.prec)*self.s
-        y = (float(num2) * 10**self.prec)*num2.s
+        x = (float(self) * 10**self.prec)
+        y = (float(num2) * 10**self.prec)
         result = x + y
         # print(x, y, result)
         if result < 0:
@@ -43,11 +43,11 @@ class FixNum:
     
     def __float__(self):
         if self.s == -1:
-            return float(f"-{self.a}.{str(self.b).zfill(self.prec)}")
+            return float(f"{self.a}.{str(self.b).zfill(self.prec)}")*-1
         else:
             return float(f"{self.a}.{str(self.b).zfill(self.prec)}")
     
     def pow(self, num2):
-        if int(self) == 0:
+        if int(self) == 0 and int():
             raise Exception("Error: Fixed point number is zero")
         return(float(self)**float(num2))
